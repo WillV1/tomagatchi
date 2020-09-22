@@ -2,8 +2,8 @@
 
 /*Create a Tomagatchi class and instatiate class (hunger, sleepiness, boredom, age);
 - hunger increments by 1 every 15 seconds; decrements by one when fed
-- sleepiness increments by 3 every 15 seconds with lights off; decrements by 1 when lights on
-- boredom increments by 2 every 15 seconds; decrements by 1 when played with
+- sleepiness increments by 2 every 15 seconds with lights off; decrements by 1 when lights on
+- boredom increments by 3 every 15 seconds; decrements by 1 when played with
 - age increments by 1 every minute alive
 - Tomagatchi dies when hunger, sleepiness, or boredom reaches 10
 - when Tomagatchi age increments by 2, it grows
@@ -28,11 +28,11 @@ class Tomagatchi {
         }; 
 
         const increaseBoredom = () => {
-            console.log(`${this.name}'s hunger increased by two`)
+            console.log(`${this.name}'s hunger increased by three`)
         }; 
 
         const increaseSleepiness = () => {
-            console.log(`${this.name}'s hunger increased by three`)
+            console.log(`${this.name}'s hunger increased by two`)
         }; 
 
         const timer = setInterval(function () {
@@ -45,14 +45,15 @@ class Tomagatchi {
 
     }
     feed () {
+        console.log(`${this.name}'s hunger decreased by one`)        
 
     }
-    // wake(){
-
-    // }
-    // play(){
-
-    // }
+    wake(){
+        console.log(`${this.name}'s sleepiness decreased by one`) 
+    }
+    play(){
+        console.log(`${this.name}'s boredom decreased by one`)  
+    }
     // age(){
 
     // }
@@ -65,3 +66,29 @@ class Tomagatchi {
 
 
 // Form 
+
+//Decrease hunger, boredom and sleepiness
+
+
+const feed = document.getElementById('feed');
+const play = document.getElementById('play');
+const sleep = document.getElementById('sleep');
+const light = document.getElementById('light');
+const dayTime = document.querySelector('.day');
+
+
+feed.addEventListener('click', (e) => {
+    figure.feed()
+});
+
+play.addEventListener('click', (e) => {
+    figure.play()
+});
+
+sleep.addEventListener('click', (e) => {
+    figure.wake()
+})
+
+light.addEventListener('click',(e) => {
+    dayTime.classList.toggle('night')
+});
