@@ -8,7 +8,7 @@ img {
     
 }
 
-h1, h2, h4{
+h1, h2, h3{
     text-align: center;
 }
 
@@ -37,6 +37,10 @@ button, #submit {
     opacity: 0.5;
     width: 100%;
     height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+
 
 }
 
@@ -62,6 +66,13 @@ button, #submit {
 .buttons {
     text-align: center;
 }
+
+.game-over {
+    font-size: 2rem;
+    color: red;
+    text-align: center;
+}
+
 
 #figure {
     margin: 0 auto;

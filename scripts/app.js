@@ -1,7 +1,7 @@
 /*Create a Tomagatchi class and instatiate class (hunger, sleepiness, boredom, age);
 - hunger increments by 1 every 15 seconds; decrements by one when fed
-- sleepiness increments by 2 every 15 seconds with lights off; decrements by 1 when lights on
-- boredom increments by 3 every 15 seconds; decrements by 1 when played with
+- sleepiness increments by 2 every 15 seconds with lights off; decrements by 2 when lights on
+- boredom increments by 3 every 15 seconds; decrements by 2 when played with
 - age increments by 1 every minute alive and it grows
 - Tomagatchi dies when hunger, sleepiness, or boredom reaches 10
 
@@ -17,49 +17,68 @@ const light = document.getElementById("light");
 const dayTime = document.querySelector(".day");
 const welcomeScreen = document.querySelector(".welcome");
 
+const timeCount = document.getElementById("time");
+const hungerCount = document.getElementById("hunger");
+const boredomCount = document.getElementById("boredom");
+const sleepCount = document.getElementById("sleep");
+const ageCount = document.getElementById("age");
+
+let time = 0;
+let hunger = 0;
+let boredom = 0;
+let sleepiness = 0;
+let age = 0;
+
 class Tomagatchi {
-  constructor(name, hunger, sleepiness, boredom, age) {
-    this.name = name;
+  constructor(hunger, sleepiness, boredom, age) {
     this.hunger = hunger;
     this.sleepiness = sleepiness;
     this.boredom = boredom;
     this.age = age;
   }
   timer() {
-    //set up metrics and time to increment
-    let time = 0;
-    let hunger = 0;
-    let boredom = 0;
-    let sleepiness = 0;
-    const timeCount = document.getElementById("time");
-    const hungerCount = document.getElementById("hunger");
-    const boredomCount = document.getElementById("boredom");
-    const sleepCount = document.getElementById("sleep");
+    /*set up metrics and timer to increment
+    TODO: how to increment age
+    */
+   const metrics = document.querySelector('.metrics');
+   const gameOver = document.createElement('h4');
+    gameOver.innerText = 'GAME OVER!';
+    gameOver.classList.add('game-over');
 
-    const timer = setInterval(function () {
+    const timer = setInterval(() => {
+
       console.log(`${time} seconds elasped`);
       timeCount.textContent = `${(time += 3)} seconds`;
-      hungerCount.textContent = hunger += 1;
-      boredomCount.textContent = boredom += 3;
-      sleepCount.textContent = sleepiness += 2;
-
+      hungerCount.textContent = this.hunger += 1;
+      boredomCount.textContent = this.boredom += 3;
+      sleepCount.textContent = this.sleepiness += 2;
+      if (this.hunger >= 10 || this.boredom >= 10 || this.sleepiness >= 10){
+          metrics.prepend(gameOver);
+          clearInterval(timer);
+    }
     }, 3000);
+ 
   }
   feed() {
-    console.log(`${this.name}'s hunger decreased by one`);
+    hungerCount.textContent = this.hunger -= 1;
   }
   wake() {
-    console.log(`${this.name}'s sleepiness decreased by one`);
+    sleepCount.textContent = this.sleepiness -= 2;
   }
   play() {
-    console.log(`${this.name}'s boredom decreased by one`);
+    boredomCount.textContent = this.boredom -= 2;
   }
   // age(){
 
   // }
+//   death() {
+//       if (this.hunger === 10){
+//           console.log('Game Over!')
+//       }
+//   }
 }
 
-let figure = new Tomagatchi("Furball", 0, 0, 0, 0);
+let figure = new Tomagatchi(hunger, sleepiness, boredom, age);
 
 //transition between login and welcome screens
 
@@ -83,7 +102,7 @@ petName.addEventListener("keypress", (e) => {
   console.log(e.key);
   if (e.key === "Enter") {
     const mainScreen = document.getElementById("main-screen");
-    const petGreeting = document.querySelector(".day h2");
+    const petGreeting = document.querySelector(".day h1");
     const buttons = document.querySelector(".buttons");
     const pet = document.getElementById("pet-name").value;
     let figureChoice = document.querySelector("#figure").value;
@@ -133,12 +152,13 @@ sleep.addEventListener("click", (e) => {
 /*Change from light to dark and vice versa; consulted code snippet for toggle from 
 https://www.w3schools.com/howto/howto_js_toggle_text.asp*/
 
-light.addEventListener('click', (e) => {
-    let lightId = document.getElementById('light');
-    dayTime.classList.toggle("night");
-    if (lightId.textContent === 'Turn Off Light'){
-        lightId.textContent = 'Turn On Light'
-    } else {
-        lightId.textContent = 'Turn Off Light'
-    }
+light.addEventListener("click", (e) => {
+  let lightId = document.getElementById("light");
+  dayTime.classList.toggle("night");
+  if (lightId.textContent === "Turn Off Light") {
+    lightId.textContent = "Turn On Light";
+  } else {
+    lightId.textContent = "Turn Off Light";
+  }
 });
+
