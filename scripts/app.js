@@ -9,6 +9,14 @@
 - to implement timer => use set interval 
 https://stackoverflow.com/questions/21638574/run-a-function-every-30-seconds-javascript/49237391
 */
+const submit = document.getElementById("submit");
+const petName = document.getElementById("pet-name");
+const feed = document.getElementById("feed");
+const play = document.getElementById("play");
+const sleep = document.getElementById("sleep");
+const light = document.getElementById("light");
+const dayTime = document.querySelector(".day");
+const welcomeScreen = document.querySelector(".welcome");
 
 class Tomagatchi {
   constructor(name, hunger, sleepiness, boredom, age) {
@@ -20,26 +28,38 @@ class Tomagatchi {
   }
   timer() {
     let time = 0;
+    let hunger = 0;
+    let boredom = 0;
+    let sleepiness = 0;
+    const timeCount = document.getElementById('time');
+    const hungerCount = document.getElementById('hunger');
+    const boredomCount = document.getElementById('boredom');
+    const sleepCount = document.getElementById('sleep');
+    // const increaseHunger = () => {
+        
+    //     console.log(`${this.name}'s hunger increased by one`);
 
-    const increaseHunger = () => {
-      console.log(`${this.name}'s hunger increased by one`);
-    };
+    // };
 
-    const increaseBoredom = () => {
-      console.log(`${this.name}'s hunger increased by three`);
-    };
+    // const increaseBoredom = () => {
+    //     console.log(`${this.name}'s hunger increased by three`);
+    // };
 
-    const increaseSleepiness = () => {
-      console.log(`${this.name}'s hunger increased by two`);
-    };
+    // const increaseSleepiness = () => {
+    //     console.log(`${this.name}'s hunger increased by two`);
+    // };
 
     const timer = setInterval(function () {
-      increaseHunger();
-      increaseBoredom();
-      increaseSleepiness();
-      console.log(`${time} seconds elasped`);
-      time += 15;
-    }, 15000);
+        // increaseHunger();
+        // increaseBoredom();
+        // increaseSleepiness();
+        console.log(`${time} seconds elasped`);
+        timeCount.textContent = `${time += 3} seconds`;
+        hungerCount.textContent = hunger += 1;
+        boredomCount.textContent = boredom += 3;
+        sleepCount.textContent = sleepiness += 2;
+        // time += 15;
+    }, 3000);
   }
   feed() {
     console.log(`${this.name}'s hunger decreased by one`);
@@ -64,14 +84,7 @@ let figure = new Tomagatchi("Furball", 0, 0, 0, 0);
 
 //Decrease hunger, boredom and sleepiness
 //Add buttons for functions
-const submit = document.getElementById("submit");
-const petName = document.getElementById("pet-name");
-const feed = document.getElementById("feed");
-const play = document.getElementById("play");
-const sleep = document.getElementById("sleep");
-const light = document.getElementById("light");
-const dayTime = document.querySelector(".day");
-const welcomeScreen = document.querySelector(".welcome");
+
 
 submit.addEventListener("click", (e) => {
   const loginScreen = document.querySelector(".login");
@@ -94,6 +107,7 @@ petName.addEventListener("keypress", (e) => {
   welcomeScreen.style.display = "none";
   mainScreen.style.display = "block";
   petGreeting.innerHTML = `${pet}`
+  figure.timer();
     }
 });
 

@@ -53,6 +53,10 @@ select {
     background: #4c4c4c
 }
 
+.buttons {
+    text-align: center;
+}
+
 #figure {
     margin: 0 auto;
 }
