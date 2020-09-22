@@ -25,6 +25,13 @@ select {
     text-align: center
 }
 
+button, #submit {
+    border-radius: 15%;
+    background: #68b0ab;
+    padding: 15px;
+    font-size: 1rem;
+}
+
 .login {
     background-image: url('../images/Zoo.png');
     opacity: 0.5;
@@ -32,7 +39,6 @@ select {
     height: 100%;
 
 }
-
 
 .entry-form{
     text-align: center
