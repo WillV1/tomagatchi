@@ -84,8 +84,9 @@ submit.addEventListener("click", (e) => {
   welcome.innerHTML = `<h2>Welcome ${userName}!</h2>`;
 });
 
-petName.addEventListener("keydown", (e) => {
-    if(e === '13'){
+petName.addEventListener("keypress", (e) => {
+    console.log(e.key)
+    if(e.key === 'Enter'){
     const mainScreen = document.getElementById('main-screen');
     const petGreeting = document.querySelector('.day h2')
     const pet = document.getElementById('pet-name').value;
