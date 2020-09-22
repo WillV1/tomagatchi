@@ -12,12 +12,12 @@
     <h1>Welcome to Tomagatchi: The Game</h1>
     <h4>Log in here to start your Tomagatchi experience!</h4>
     <form>
-        <input type="text" placeholder="Username">
-        <input type="password" placeholder="Password">
+        <input type="text" placeholder="Username" required>
+        <input type="password" placeholder="Password" minlength="6" maxlength="10" required>
         <label>Password must be between 6-10 characters</label>
         <input type="submit">
     </form>
-    <div id="new">
+    <div class="welcome">
         <h2>Welcome!</h2>
         <label for="figure">Select your figure below to start the game:</p>
         <img>
@@ -28,11 +28,13 @@
             <option value="tiger">Tiger</option>
             <option value="chinchilla">Chinchilla</option>
         </select>
+        <label>Name your pet</label>
+        <input type="text" placeholder="Your pet name" required>
     </div>
-    <div id="play" class="day">
-        <button>Feed Me!</button>
-        <button>Wake Me Up!</button>
-        <button>Play with Me!</button>
+    <div class="class day">
+        <button id="feed">Feed Me!</button>
+        <button id="sleep">Wake Me Up!</button>
+        <button id="play">Play with Me!</button>
     </div>
 </body>
 </html>
