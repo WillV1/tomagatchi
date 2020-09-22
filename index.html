@@ -5,33 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tomagatchi</title>
     <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <script src="scripts/jquery-3.5.1.min.js"></script>
     <script defer src="scripts/app.js"></script>
 </head>
 <body>
-    <h1>Welcome to Tomagatchi: The Game</h1>
-    <h4>Log in here to start your Tomagatchi experience!</h4>
-    <form>
-        <input type="text" placeholder="Username" required>
-        <input type="password" placeholder="Password" minlength="6" maxlength="10" required>
-        <label>Password must be between 6-10 characters</label>
-        <input type="submit">
-    </form>
+    
+    <section class="login">
+        <h1>Welcome to Tomagatchi: The Game</h1>
+        <h4>Log in here to start your Tomagatchi experience!</h4>
+        <div class="entry-form">
+            <form>
+                <input id="username" type="text" placeholder="Username" required>
+                <br>
+                <input type="password" placeholder="Password" minlength="6" maxlength="10" required>
+                <br>
+                <br>
+                <label>Password must be between 6-10 characters</label>
+                <br>
+                <br>
+                <input id="submit" type="submit">
+            </form>
+        </div>
+    </section>
+    
+    
     <div class="welcome">
         <h2>Welcome!</h2>
         <label for="figure">Select your figure below to start the game:</p>
-        <img>
-        <img>
-        <img>
+        <img src="images/panda.png">
+        <img src="images/hamster.png">
+        <img src="images/rabbit.png">
         <select name="figure" id="figure">
-            <option value="corgi">Corgi</option>
-            <option value="tiger">Tiger</option>
-            <option value="chinchilla">Chinchilla</option>
+            <option value="panda">Panda</option>
+            <option value="hamster">Hamster</option>
+            <option value="rabbit">Rabbit</option>
         </select>
-        <label>Name your pet</label>
-        <input type="text" placeholder="Your pet name" required>
+        <br>
+        <label>Name your pet:</label>
+        <input id="pet-name" type="text" placeholder="Your pet name" required>
     </div>
-    <div class="day">
+    <div id="main-screen" class="day">
+        <h2>Pet Name</h2>
         <button id="feed">Feed Me!</button>
         <button id="sleep">Wake Me Up!</button>
         <button id="light">Turn Off Light</button>
