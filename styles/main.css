@@ -73,6 +73,13 @@ button, #submit {
     text-align: center;
 }
 
+.character {
+   margin: 0 auto;
+}
+
+.character-move {
+    position: absolute;
+ } 
 
 #figure {
     margin: 0 auto;
