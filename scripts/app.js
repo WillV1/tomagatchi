@@ -66,10 +66,12 @@ class Tomagatchi {
       hungerCount.textContent = this.hunger += 1;
       boredomCount.textContent = this.boredom += 3;
       sleepCount.textContent = this.sleepiness += 2;
-      ageCount.textContent = this.age += .50
+      ageCount.textContent = this.age += .50;
       if (this.hunger >= 10 || this.boredom >= 10 || this.sleepiness >= 10) {
         metrics.prepend(gameOver);
         clearInterval(timer);
+        document.querySelector('.character-move').setAttribute('class', 'character');
+        this.restart()
       }  
     }, 5000);
   }
@@ -83,12 +85,22 @@ class Tomagatchi {
     boredomCount.textContent = this.boredom -= 2;
 
   }
-  age() {}
-  //   death() {
-  //       if (this.hunger === 10){
-  //           console.log('Game Over!')
-  //       }
-  //   }
+  moveFigure() {
+    document.querySelector('.character').setAttribute('class', 'character-move');
+     
+  }
+  restart() {
+    let restartGame = document.getElementById('restart');
+    restartGame.addEventListener('click', ()=> {
+      timeCount.textContent = `${0} seconds`;
+      
+      hungerCount.textContent = 0;
+      boredomCount.textContent = 0;
+      sleepCount.textContent = 0;
+      ageCount.textContent = 0;
+      this.timer();
+    })
+  }
 }
 
 let figure = new Tomagatchi(hunger, sleepiness, boredom, age);
@@ -147,7 +159,9 @@ let playScreen = petName.addEventListener("keypress", (e) => {
       
       buttons.prepend(figureDisplay);
     }
-    // figure.timer();
+    figure.timer();
+    figure.moveFigure();
+    // figure.restart();
   }
 });
 
@@ -157,9 +171,8 @@ feed.addEventListener("click", (e) => {
   figure.feed();
 });
 
-play.addEventListener("click", (playScreen) => {
-  figure.play(playScreen);
-  let movement = document.querySelector('.character').classList.toggle('character-move')
+play.addEventListener("click", () => {
+  figure.play();
 });
 
 wake.addEventListener("click", (e) => {
