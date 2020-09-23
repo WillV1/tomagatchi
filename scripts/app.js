@@ -37,9 +37,22 @@ class Tomagatchi {
     this.boredom = boredom;
     this.age = age;
   }
+  // updateHunger() { 
+  //   var element = document.getElementById('progress-bar');    
+  //   let width = 0; 
+  //   let identity = setInterval(scene, 10); 
+  //   let scene = () => { 
+  //     if (width >= 100) { 
+  //       clearInterval(identity); 
+  //     } else { 
+  //       width++;  
+  //       element.style.width = width + '%';  
+  //     } 
+  //   } 
+  // } 
   timer() {
     /*set up metrics and timer to increment
-    TODO: how to increment age
+    TODO: how to increment age by 1 on screen
     */
     const metrics = document.querySelector('.metrics');
     const gameOver = document.createElement('h4');
@@ -49,6 +62,7 @@ class Tomagatchi {
     const timer = setInterval(() => {
       console.log(`${time} seconds elasped`);
       timeCount.textContent = `${(time += 5)} seconds`;
+      
       hungerCount.textContent = this.hunger += 1;
       boredomCount.textContent = this.boredom += 3;
       sleepCount.textContent = this.sleepiness += 2;
@@ -133,7 +147,7 @@ let playScreen = petName.addEventListener("keypress", (e) => {
       
       buttons.prepend(figureDisplay);
     }
-    figure.timer();
+    // figure.timer();
   }
 });
 
@@ -153,12 +167,14 @@ wake.addEventListener("click", (e) => {
 });
 
 /*Change from light to dark and vice versa; consulted code snippet for toggle from 
-https://www.w3schools.com/howto/howto_js_toggle_text.asp*/
+https://www.w3schools.com/howto/howto_js_toggle_text.asp
+TODO: figure out why error message on line 161
+*/
 
 light.addEventListener('click', (e) => {
   let lightId = document.getElementById('night');
   dayTime.classList.toggle('night');
-  if (lightId.textContent === "Turn Off Light") {
+  if (lightId.textContent = "Turn Off Light") {
     lightId.textContent = "Turn On Light";
   } else {
     lightId.textContent = "Turn Off Light";
