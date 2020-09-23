@@ -16,7 +16,9 @@ const wake = document.getElementById("wake");
 const light = document.getElementById("light");
 const dayTime = document.querySelector(".day");
 const welcomeScreen = document.querySelector(".welcome");
+const mainScreen = document.getElementById("main-screen");
 
+const gameOver = document.createElement('h4');
 const timeCount = document.getElementById("time");
 const hungerCount = document.getElementById("hunger");
 const boredomCount = document.getElementById("boredom");
@@ -54,8 +56,9 @@ class Tomagatchi {
     /*set up metrics and timer to increment
     TODO: how to increment age by 1 on screen
     */
+    
     const metrics = document.querySelector('.metrics');
-    const gameOver = document.createElement('h4');
+
     gameOver.innerText = 'GAME OVER!';
     gameOver.classList.add('game-over');
 
@@ -70,8 +73,7 @@ class Tomagatchi {
       if (this.hunger >= 10 || this.boredom >= 10 || this.sleepiness >= 10) {
         metrics.prepend(gameOver);
         clearInterval(timer);
-        document.querySelector('.character-move').setAttribute('class', 'character');
-        this.restart()
+        document.querySelector(".character-move").setAttribute("class", "character");
       }  
     }, 5000);
   }
@@ -86,20 +88,28 @@ class Tomagatchi {
 
   }
   moveFigure() {
-    document.querySelector('.character').setAttribute('class', 'character-move');
-     
+    document.querySelector(".character").setAttribute("class", "character-move");
   }
   restart() {
-    let restartGame = document.getElementById('restart');
-    restartGame.addEventListener('click', ()=> {
+    let restartGame = document.getElementById("restart");
+    restartGame.addEventListener("click", () => {
+
+      gameOver.remove();
       timeCount.textContent = `${0} seconds`;
-      
       hungerCount.textContent = 0;
       boredomCount.textContent = 0;
       sleepCount.textContent = 0;
       ageCount.textContent = 0;
+
+      time = 0;
+      this.hunger = 0;
+      this.boredom = 0;
+      this.sleepiness = 0;
+      this.age = 0;
+
       this.timer();
-    })
+      this.moveFigure();
+    });
   }
 }
 
@@ -126,7 +136,7 @@ start timer on main screen
 let playScreen = petName.addEventListener("keypress", (e) => {
   console.log(e.key);
   if (e.key === "Enter") {
-    const mainScreen = document.getElementById("main-screen");
+  
     const petGreeting = document.querySelector(".day h1");
     const buttons = document.querySelector(".buttons");
     const pet = document.getElementById("pet-name").value;
@@ -152,16 +162,16 @@ let playScreen = petName.addEventListener("keypress", (e) => {
       buttons.prepend(figureDisplay);
     } else if (figureChoice === hamster) {
       figureDisplay.innerHTML = '<img src="images/hamster.png">';
-      
+      figureDisplay.classList.add('character');
       buttons.prepend(figureDisplay);
     } else if (figureChoice === monkey) {
       figureDisplay.innerHTML = '<img src="images/monkey.png">';
-      
+      figureDisplay.classList.add('character');
       buttons.prepend(figureDisplay);
     }
     figure.timer();
     figure.moveFigure();
-    // figure.restart();
+    figure.restart();
   }
 });
 
