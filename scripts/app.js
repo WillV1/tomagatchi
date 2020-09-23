@@ -151,7 +151,8 @@ let playScreen = petName.addEventListener("keypress", (e) => {
     let figureDisplay = document.createElement("div");
 
     welcomeScreen.style.display = "none";
-    mainScreen.style.display = "block";
+    mainScreen.style.display = "flex";
+    petGreeting.style.margin = '10px;'
     petGreeting.innerHTML = `${pet}`;
 
     if (figureChoice === panda) {
