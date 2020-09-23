@@ -71,6 +71,20 @@ button, #submit {
     font-size: 2rem;
     color: red;
     text-align: center;
+    animation-name: gameends;
+    animation-duration: 2s;
+    animation-iteration-count: 2;
+
+}
+
+@keyframes gameends {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 100%;
+    }
 }
 
 .character {
