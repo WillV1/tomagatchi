@@ -73,7 +73,7 @@ class Tomagatchi {
       if (this.hunger >= 10 || this.boredom >= 10 || this.sleepiness >= 10) {
         metrics.prepend(gameOver);
         clearInterval(timer);
-        document.querySelector(".character-move").setAttribute("class", "character");
+        document.querySelector(".character-move").setAttribute("class", "character-end");
       }  
     }, 5000);
   }
@@ -87,14 +87,12 @@ class Tomagatchi {
     boredomCount.textContent = this.boredom -= 2;
 
   }
-  moveFigure() {
-    document.querySelector(".character").setAttribute("class", "character-move");
-  }
   restart() {
     let restartGame = document.getElementById("restart");
     restartGame.addEventListener("click", () => {
 
       gameOver.remove();
+      document.querySelector(".character-end").setAttribute("class", "character-move");
       timeCount.textContent = `${0} seconds`;
       hungerCount.textContent = 0;
       boredomCount.textContent = 0;
@@ -158,19 +156,18 @@ let playScreen = petName.addEventListener("keypress", (e) => {
 
     if (figureChoice === panda) {
       figureDisplay.innerHTML = '<img src="images/panda.png">';
-      figureDisplay.classList.add('character');
+      figureDisplay.classList.add('character-move');
       buttons.prepend(figureDisplay);
     } else if (figureChoice === hamster) {
       figureDisplay.innerHTML = '<img src="images/hamster.png">';
-      figureDisplay.classList.add('character');
+      figureDisplay.classList.add('character-move');
       buttons.prepend(figureDisplay);
     } else if (figureChoice === monkey) {
       figureDisplay.innerHTML = '<img src="images/monkey.png">';
-      figureDisplay.classList.add('character');
+      figureDisplay.classList.add('character-move');
       buttons.prepend(figureDisplay);
     }
     figure.timer();
-    figure.moveFigure();
     figure.restart();
   }
 });
