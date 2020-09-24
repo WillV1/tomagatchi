@@ -65,28 +65,28 @@ class Tomagatchi {
     //array of objects for break points age /size
     const sizes = [{
       age: 1,
+      height: "50px",
+      width: "50px"
+    },
+    {
+      age: 2,
       height: "100px",
       width: "100px"
     },
     {
-      age: 2,
+      age: 5,
       height: "150px",
       width: "150px"
     },
     {
-      age: 5,
+      age: 8,
       height: "200px",
       width: "200px"
     },
     {
-      age: 8,
+      age: 10,
       height: "250px",
       width: "250px"
-    },
-    {
-      age: 10,
-      height: "300px",
-      width: "300px"
     }]
 
     const screenPetName = document.querySelector(".petname");
@@ -125,6 +125,7 @@ class Tomagatchi {
     if (this.hunger > 0) {
       hungerCount.textContent = this.hunger -= 1;
     }
+
   }
   wake() {
 
@@ -139,9 +140,12 @@ class Tomagatchi {
     }
   }
   exercise() {
-    boredomCount.textContent = this.boredom -= 1;
-    sleepCount.textContent = this.sleepiness -= 2;
-    hungerCount.textContent = this.hunger += 1;
+
+    if(this.boredom > 0 && this.sleepiness > 0 && this.hunger > 0){
+      boredomCount.textContent = this.boredom -= 1;
+      sleepCount.textContent = this.sleepiness -= 2;
+      hungerCount.textContent = this.hunger += 1;
+    }
   }
   restart() {
     let restartGame = document.getElementById("restart");
@@ -226,8 +230,8 @@ let playScreen = petName.addEventListener("keypress", (e) => {
     const images = Array.from(document.getElementsByTagName("img"));
     
     images.forEach((image) => {
-      image.style.height = "50px";
-      image.style.width = "50px";
+      image.style.height = "25px";
+      image.style.width = "25px";
     });
     figure.timer();
     figure.restart();
