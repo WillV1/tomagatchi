@@ -45,19 +45,6 @@ class Tomagatchi {
     this.boredom = boredom;
     this.age = age;
   }
-  // updateHunger() {
-  //   var element = document.getElementById('progress-bar');
-  //   let width = 0;
-  //   let identity = setInterval(scene, 10);
-  //   let scene = () => {
-  //     if (width >= 100) {
-  //       clearInterval(identity);
-  //     } else {
-  //       width++;
-  //       element.style.width = width + '%';
-  //     }
-  //   }
-  // }
   timer() {
     /*set up metrics and timer to increment
     TODO: how to increment age by 1 on screen
@@ -257,15 +244,7 @@ exercise.addEventListener("click", () => {
   // document
   //   .querySelector(".character-move")
   //   .setAttribute("class", "character-workout");
-});
-
-// const ignoreButton = () => {
-//   if (this.hunger <= 0 || this.boredom <= 0 || this.sleepiness <= 0) {
-//     feed.removeEventListener('click', () => {
-//       figure.feed();
-//     })
-//   }
-// }   
+});  
 
 /*Change from light to dark and vice versa; consulted code snippet for toggle from 
 https://www.w3schools.com/howto/howto_js_toggle_text.asp
@@ -273,13 +252,13 @@ TODO: figure out why error message on line 161
 */
 
 light.addEventListener("click", (e) => {
-  let lightId = document.getElementById("light");
   dayTime.classList.toggle("night");
-  if ((lightId.textContent = "Turn Off Light")) {
-    lightId.textContent = "Turn On Light";
-  } else {
-    lightId.textContent = "Turn Off Light";
-  }
+    let lightId = document.getElementById("light");
+    if (lightId.innerHTML === "Turn Off Light!") {
+      lightId.innerHTML = "Turn On Light!"
+    } else {
+      lightId.innerHTML = "Turn Off Light!"
+    }
 });
 
 

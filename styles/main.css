@@ -57,10 +57,12 @@ button,
 .day {
   background: #edc988;
   display: none;
+  transition: 2s
 }
 
 .night {
   background: #4c4c4c;
+  transition: 2s
 }
 
 .buttons {
@@ -166,16 +168,3 @@ button,
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
-/* #progress-status {
-    width: 25%; 
-    background-color: #ddd;
-}
-
-#progress-bar {
-    width: 1%; 
-    height: 35px; 
-    background-color: #4CAF50; 
-    text-align: center; 
-    line-height: 32px; 
-    color: black; 
-} */
