@@ -81,7 +81,7 @@ class Tomagatchi {
     {
       age: 8,
       height: "250px",
-      width: "2500px"
+      width: "250px"
     },
     {
       age: 10,
