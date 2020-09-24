@@ -63,7 +63,33 @@ class Tomagatchi {
     TODO: how to increment age by 1 on screen
     */
     //array of objects for break points age /size
-    const metrics = document.querySelector(".metrics");
+    const sizes = [{
+      age: 1,
+      height: "100px",
+      width: "100px"
+    },
+    {
+      age: 2,
+      height: "150px",
+      width: "150px"
+    },
+    {
+      age: 5,
+      height: "200px",
+      width: "200px"
+    },
+    {
+      age: 8,
+      height: "250px",
+      width: "2500px"
+    },
+    {
+      age: 10,
+      height: "300px",
+      width: "300px"
+    }]
+
+    const screenPetName = document.querySelector(".petname");
 
     gameOver.innerText = "GAME OVER!";
     gameOver.classList.add("game-over");
@@ -76,17 +102,17 @@ class Tomagatchi {
       sleepCount.textContent = this.sleepiness += 2;
       ageCount.textContent = this.age += 0.5;
 
-      if (this.age === 1) {
-        const images = Array.from(document.getElementsByTagName("img"));
-      
-        images.forEach((image) => {
-          image.style.height = "100px";
-          image.style.width = "100px";
-        });
-      }
-
+      sizes.forEach(size =>{
+        if (this.age === size.age) {
+          const images = Array.from(document.getElementsByTagName("img"));
+          images.forEach((image) => {
+            image.style.height = size.height;
+            image.style.width = size.width;
+          });
+        }
+      })
       if (this.hunger >= 10 || this.boredom >= 10 || this.sleepiness >= 10) {
-        metrics.prepend(gameOver);
+        screenPetName.append(gameOver);
         clearInterval(timer);
         document
           .querySelector(".character-move")
