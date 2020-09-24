@@ -70,7 +70,7 @@ button,
 }
 
 .metrics {
-  background: #e8e8e8;
+  background: #faf3dd;
   margin-top: 10px;
   padding: 15px;
   border: 1px solid grey;
@@ -87,6 +87,7 @@ button,
   font-size: 2rem;
   color: red;
   text-align: center;
+  font-family: 'Cantarell', sans-serif;
   animation-name: gameends;
   animation-duration: 2s;
   animation-iteration-count: 2;
@@ -102,11 +103,19 @@ button,
   }
 }
 
-.character {
-  margin: 0 auto;
+.container {
+  background: #e8e8e8;
+  height: 300px;
+  width: 450px;
+  border-radius: 50%;
+  position: relative;
+  top: 20%;
 }
 
 .character-move {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   animation-duration: 5s;
   animation-name: slideacross;
   animation-timing-function: linear;
@@ -116,17 +125,18 @@ button,
 
 @keyframes slideacross {
   from {
-    margin-left: 0%;
-    width: 50%;
+    left: 0%;
   }
 
   to {
-    margin-right: 0%;
-    width: 100%;
+    right: 0%;
   }
 }
 
 .character-end {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   animation-duration: 2s;
   animation-name: gameover;
   animation-iteration-count: 1;
@@ -142,7 +152,10 @@ button,
     }
   }
 
-/* .character-workout {
+.character-workout {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   animation-duration: 2s;
   animation-name: workout;
   animation-iteration-count: 1;
@@ -150,15 +163,13 @@ button,
   
  @keyframes workout {
     from {
-    margin-right: 0%;
-    width: 100%;
+      transform: translateY(0%);
     }
-    
+
     to {
-      margin-top: 0%;
-      height: 100%;
+      transform: translateY(100%);
     }
-  } */
+  }
 
 #figure {
   margin: 0 auto;

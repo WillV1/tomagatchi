@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tomagatchi</title>
     <link rel="stylesheet" href="styles/main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@1,700&family=Open+Sans&display=swap" rel="stylesheet">
     <script defer src="scripts/app.js"></script>
 </head>
 <body>
@@ -32,9 +32,9 @@
     <section class="welcome">
         <h2>Welcome!</h2>
         <label for="figure">Select your figure below to start the game:</p>
-        <img src="images/panda.png">
-        <img src="images/hamster.png">
-        <img src="images/monkey.png">
+        <img id="panda" src="images/panda.png">
+        <img id="hamster" src="images/hamster.png">
+        <img id="monkey" src="images/monkey.png">
         <select name="figure" id="figure">
             <option value="panda">Panda</option>
             <option value="hamster">Hamster</option>
@@ -56,6 +56,7 @@
             <p>Sleepiness: <span id="sleep">0</span></p>
             <p>Age: <span id="age">0</span></p>
         </div>
+        <div class="container"></div>
         <div class="buttons">
             <button id="feed">Feed Me!</button>
             <button id="wake">Wake Me Up!</button>

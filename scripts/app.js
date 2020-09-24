@@ -8,12 +8,15 @@ const wake = document.getElementById("wake");
 const exercise = document.getElementById("exercise");
 const light = document.getElementById("light");
 const dayTime = document.querySelector(".day");
+const pandaFigure = document.getElementById("panda");
+const hamsterFigure = document.getElementById("hamster");
+const monkeyFigure = document.getElementById("monkey");
 const welcomeScreen = document.querySelector(".welcome");
 const mainScreen = document.getElementById("main-screen");
 // //thank you Stack overflow : https://stackoverflow.com/questions/49956141/how-to-iterate-on-htmlcollection
 const images = Array.from(document.getElementsByTagName("img"));
 
-const gameOver = document.createElement("h4");
+const gameOver = document.createElement("h3");
 const timeCount = document.getElementById("time");
 const hungerCount = document.getElementById("hunger");
 const boredomCount = document.getElementById("boredom");
@@ -194,7 +197,7 @@ let playScreen = petName.addEventListener("keypress", (e) => {
     let monkey = document
       .getElementsByTagName("option")[2]
       .getAttribute("value");
-    const figureDisplay = document.createElement("div");
+    const figureDisplay = document.querySelector(".container");
 
     welcomeScreen.style.display = "none";
     mainScreen.style.display = "flex";
@@ -202,17 +205,17 @@ let playScreen = petName.addEventListener("keypress", (e) => {
     petGreeting.innerHTML = `${pet}`;
 
     if (figureChoice === panda) {
-      figureDisplay.innerHTML = '<img src="images/panda.png">';
-      figureDisplay.classList.add("character-move");
-      buttons.prepend(figureDisplay);
+
+      pandaFigure.classList.add("character-move");
+      figureDisplay.append(pandaFigure);
     } else if (figureChoice === hamster) {
-      figureDisplay.innerHTML = '<img src="images/hamster.png">';
-      figureDisplay.classList.add("character-move");
-      buttons.prepend(figureDisplay);
+
+      hamsterFigure.classList.add("character-move");
+      figureDisplay.append(hamsterFigure);
     } else if (figureChoice === monkey) {
-      figureDisplay.innerHTML = '<img src="images/monkey.png">';
-      figureDisplay.classList.add("character-move");
-      buttons.prepend(figureDisplay);
+
+      monkeyFigure.classList.add("character-move");
+      figureDisplay.append(monkeyFigure);
     }
     const images = Array.from(document.getElementsByTagName("img"));
     
