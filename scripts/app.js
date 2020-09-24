@@ -5,6 +5,7 @@ const petName = document.getElementById("pet-name");
 const feed = document.getElementById("feed");
 const play = document.getElementById("play");
 const wake = document.getElementById("wake");
+const exercise = document.getElementById("exercise");
 const light = document.getElementById("light");
 const dayTime = document.querySelector(".day");
 const welcomeScreen = document.querySelector(".welcome");
@@ -75,11 +76,14 @@ class Tomagatchi {
       sleepCount.textContent = this.sleepiness += 2;
       ageCount.textContent = this.age += 0.5;
 
+      if (this.age === 1) {
       const images = Array.from(document.getElementsByTagName("img"));
       console.log(images);
       images.forEach((image) => {
-        image.style.height = "100px"
+        image.style.height = "100px";
+        image.style.width = "100px";
       });
+    };
 
       if (this.hunger >= 10 || this.boredom >= 10 || this.sleepiness >= 10) {
         metrics.prepend(gameOver);
@@ -98,6 +102,11 @@ class Tomagatchi {
   }
   play() {
     boredomCount.textContent = this.boredom -= 2;
+  }
+  exercise () {
+    boredomCount.textContent = this.boredom -= 1;
+    sleepCount.textContent = this.sleepiness -= 2;
+    hungerCount.textContent = this.hunger += 1;
   }
   restart() {
     let restartGame = document.getElementById("restart");
@@ -182,16 +191,17 @@ let playScreen = petName.addEventListener("keypress", (e) => {
     const images = Array.from(document.getElementsByTagName("img"));
       console.log(images);
       images.forEach((image) => {
-        image.style.height = "100px"
+        image.style.height = "50px";
+        image.style.width = "50px";
       });
     figure.timer();
     figure.restart();
   }
 });
 
-//Decrease hunger, boredom and sleepiness
+//Decrease hunger, boredom and sleepiness; exercise
 
-feed.addEventListener("click", (e) => {
+feed.addEventListener("click", () => {
   figure.feed();
 });
 
@@ -199,9 +209,13 @@ play.addEventListener("click", () => {
   figure.play();
 });
 
-wake.addEventListener("click", (e) => {
+wake.addEventListener("click", () => {
   figure.wake();
 });
+
+exercise.addEventListener("click", () => {
+  figure.exercise();
+})
 
 /*Change from light to dark and vice versa; consulted code snippet for toggle from 
 https://www.w3schools.com/howto/howto_js_toggle_text.asp
