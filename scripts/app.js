@@ -9,10 +9,10 @@ const light = document.getElementById("light");
 const dayTime = document.querySelector(".day");
 const welcomeScreen = document.querySelector(".welcome");
 const mainScreen = document.getElementById("main-screen");
-const tomagatchi = document.getElementById("tomagatchi");
-let figureDisplay = document.createElement("div");
+// //thank you Stack overflow : https://stackoverflow.com/questions/49956141/how-to-iterate-on-htmlcollection
+const images = Array.from(document.getElementsByTagName("img"));
 
-const gameOver = document.createElement('h4');
+const gameOver = document.createElement("h4");
 const timeCount = document.getElementById("time");
 const hungerCount = document.getElementById("hunger");
 const boredomCount = document.getElementById("boredom");
@@ -44,43 +44,50 @@ class Tomagatchi {
     this.boredom = boredom;
     this.age = age;
   }
-  // updateHunger() { 
-  //   var element = document.getElementById('progress-bar');    
-  //   let width = 0; 
-  //   let identity = setInterval(scene, 10); 
-  //   let scene = () => { 
-  //     if (width >= 100) { 
-  //       clearInterval(identity); 
-  //     } else { 
-  //       width++;  
-  //       element.style.width = width + '%';  
-  //     } 
-  //   } 
-  // } 
+  // updateHunger() {
+  //   var element = document.getElementById('progress-bar');
+  //   let width = 0;
+  //   let identity = setInterval(scene, 10);
+  //   let scene = () => {
+  //     if (width >= 100) {
+  //       clearInterval(identity);
+  //     } else {
+  //       width++;
+  //       element.style.width = width + '%';
+  //     }
+  //   }
+  // }
   timer() {
     /*set up metrics and timer to increment
     TODO: how to increment age by 1 on screen
     */
-    
-    const metrics = document.querySelector('.metrics');
 
-    gameOver.innerText = 'GAME OVER!';
-    gameOver.classList.add('game-over');
+    const metrics = document.querySelector(".metrics");
+
+    gameOver.innerText = "GAME OVER!";
+    gameOver.classList.add("game-over");
 
     const timer = setInterval(() => {
       console.log(`${time} seconds elasped`);
       timeCount.textContent = `${(time += 5)} seconds`;
-      
       hungerCount.textContent = this.hunger += 1;
       boredomCount.textContent = this.boredom += 3;
       sleepCount.textContent = this.sleepiness += 2;
-      ageCount.textContent = this.age += .50;
-      tomagatchi.style.height = "100px";
+      ageCount.textContent = this.age += 0.5;
+
+      const images = Array.from(document.getElementsByTagName("img"));
+      console.log(images);
+      images.forEach((image) => {
+        image.style.height = "100px"
+      });
+
       if (this.hunger >= 10 || this.boredom >= 10 || this.sleepiness >= 10) {
         metrics.prepend(gameOver);
         clearInterval(timer);
-        document.querySelector(".character-move").setAttribute("class", "character-end");
-      }  
+        document
+          .querySelector(".character-move")
+          .setAttribute("class", "character-end");
+      }
     }, 5000);
   }
   feed() {
@@ -91,14 +98,14 @@ class Tomagatchi {
   }
   play() {
     boredomCount.textContent = this.boredom -= 2;
-
   }
   restart() {
     let restartGame = document.getElementById("restart");
     restartGame.addEventListener("click", () => {
-
       gameOver.remove();
-      document.querySelector(".character-end").setAttribute("class", "character-move");
+      document
+        .querySelector(".character-end")
+        .setAttribute("class", "character-move");
       timeCount.textContent = `${0} seconds`;
       hungerCount.textContent = 0;
       boredomCount.textContent = 0;
@@ -112,7 +119,6 @@ class Tomagatchi {
       this.age = 0;
 
       this.timer();
-      this.moveFigure();
     });
   }
 }
@@ -140,7 +146,6 @@ start timer on main screen
 let playScreen = petName.addEventListener("keypress", (e) => {
   console.log(e.key);
   if (e.key === "Enter") {
-  
     const petGreeting = document.querySelector(".day h1");
     const buttons = document.querySelector(".buttons");
     const pet = document.getElementById("pet-name").value;
@@ -154,26 +159,31 @@ let playScreen = petName.addEventListener("keypress", (e) => {
     let monkey = document
       .getElementsByTagName("option")[2]
       .getAttribute("value");
-
+    const figureDisplay = document.createElement("div");
 
     welcomeScreen.style.display = "none";
     mainScreen.style.display = "flex";
-    petGreeting.style.margin = '10px;'
+    petGreeting.style.margin = "10px;";
     petGreeting.innerHTML = `${pet}`;
 
     if (figureChoice === panda) {
-      figureDisplay.innerHTML = '<img id="tomagatchi" src="images/panda.png">';
-      figureDisplay.classList.add('character-move');
+      figureDisplay.innerHTML = '<img src="images/panda.png">';
+      figureDisplay.classList.add("character-move");
       buttons.prepend(figureDisplay);
     } else if (figureChoice === hamster) {
       figureDisplay.innerHTML = '<img src="images/hamster.png">';
-      figureDisplay.classList.add('character-move');
+      figureDisplay.classList.add("character-move");
       buttons.prepend(figureDisplay);
     } else if (figureChoice === monkey) {
       figureDisplay.innerHTML = '<img src="images/monkey.png">';
-      figureDisplay.classList.add('character-move');
+      figureDisplay.classList.add("character-move");
       buttons.prepend(figureDisplay);
     }
+    const images = Array.from(document.getElementsByTagName("img"));
+      console.log(images);
+      images.forEach((image) => {
+        image.style.height = "100px"
+      });
     figure.timer();
     figure.restart();
   }
@@ -198,10 +208,10 @@ https://www.w3schools.com/howto/howto_js_toggle_text.asp
 TODO: figure out why error message on line 161
 */
 
-light.addEventListener('click', (e) => {
-  let lightId = document.getElementById('night');
-  dayTime.classList.toggle('night');
-  if (lightId.textContent = "Turn Off Light") {
+light.addEventListener("click", (e) => {
+  let lightId = document.getElementById("night");
+  dayTime.classList.toggle("night");
+  if ((lightId.textContent = "Turn Off Light")) {
     lightId.textContent = "Turn On Light";
   } else {
     lightId.textContent = "Turn Off Light";
