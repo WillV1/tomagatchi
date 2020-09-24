@@ -62,7 +62,7 @@ class Tomagatchi {
     /*set up metrics and timer to increment
     TODO: how to increment age by 1 on screen
     */
-
+    //array of objects for break points age /size
     const metrics = document.querySelector(".metrics");
 
     gameOver.innerText = "GAME OVER!";
@@ -77,13 +77,13 @@ class Tomagatchi {
       ageCount.textContent = this.age += 0.5;
 
       if (this.age === 1) {
-      const images = Array.from(document.getElementsByTagName("img"));
-      console.log(images);
-      images.forEach((image) => {
-        image.style.height = "100px";
-        image.style.width = "100px";
-      });
-    };
+        const images = Array.from(document.getElementsByTagName("img"));
+      
+        images.forEach((image) => {
+          image.style.height = "100px";
+          image.style.width = "100px";
+        });
+      }
 
       if (this.hunger >= 10 || this.boredom >= 10 || this.sleepiness >= 10) {
         metrics.prepend(gameOver);
@@ -91,19 +91,28 @@ class Tomagatchi {
         document
           .querySelector(".character-move")
           .setAttribute("class", "character-end");
-      }
+      } 
     }, 5000);
   }
   feed() {
-    hungerCount.textContent = this.hunger -= 1;
+    
+    if (this.hunger > 0) {
+      hungerCount.textContent = this.hunger -= 1;
+    }
   }
   wake() {
-    sleepCount.textContent = this.sleepiness -= 2;
+
+    if(this.sleepiness > 0) {
+      sleepCount.textContent = this.sleepiness -= 2;
+    }
   }
   play() {
-    boredomCount.textContent = this.boredom -= 2;
+    
+    if(this.boredom > 0){
+      boredomCount.textContent = this.boredom -= 2;
+    }
   }
-  exercise () {
+  exercise() {
     boredomCount.textContent = this.boredom -= 1;
     sleepCount.textContent = this.sleepiness -= 2;
     hungerCount.textContent = this.hunger += 1;
@@ -189,11 +198,11 @@ let playScreen = petName.addEventListener("keypress", (e) => {
       buttons.prepend(figureDisplay);
     }
     const images = Array.from(document.getElementsByTagName("img"));
-      console.log(images);
-      images.forEach((image) => {
-        image.style.height = "50px";
-        image.style.width = "50px";
-      });
+    
+    images.forEach((image) => {
+      image.style.height = "50px";
+      image.style.width = "50px";
+    });
     figure.timer();
     figure.restart();
   }
@@ -215,7 +224,18 @@ wake.addEventListener("click", () => {
 
 exercise.addEventListener("click", () => {
   figure.exercise();
-})
+  // document
+  //   .querySelector(".character-move")
+  //   .setAttribute("class", "character-workout");
+});
+
+// const ignoreButton = () => {
+//   if (this.hunger <= 0 || this.boredom <= 0 || this.sleepiness <= 0) {
+//     feed.removeEventListener('click', () => {
+//       figure.feed();
+//     })
+//   }
+// }   
 
 /*Change from light to dark and vice versa; consulted code snippet for toggle from 
 https://www.w3schools.com/howto/howto_js_toggle_text.asp
@@ -223,7 +243,7 @@ TODO: figure out why error message on line 161
 */
 
 light.addEventListener("click", (e) => {
-  let lightId = document.getElementById("night");
+  let lightId = document.getElementById("light");
   dayTime.classList.toggle("night");
   if ((lightId.textContent = "Turn Off Light")) {
     lightId.textContent = "Turn On Light";
@@ -231,3 +251,5 @@ light.addEventListener("click", (e) => {
     lightId.textContent = "Turn Off Light";
   }
 });
+
+

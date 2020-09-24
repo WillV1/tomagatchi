@@ -67,6 +67,16 @@ button,
   text-align: center;
 }
 
+.metrics {
+  background: #e8e8e8;
+}
+
+.petname {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
 .game-over {
   font-size: 2rem;
   color: red;
@@ -126,14 +136,30 @@ button,
     }
   }
 
+/* .character-workout {
+  animation-duration: 2s;
+  animation-name: workout;
+  animation-iteration-count: 1;
+}
+  
+ @keyframes workout {
+    from {
+    margin-right: 0%;
+    width: 100%;
+    }
+    
+    to {
+      margin-top: 0%;
+      height: 100%;
+    }
+  } */
 
 #figure {
   margin: 0 auto;
 }
 
 #main-screen {
-    align-items: center;
-    align-content: center;
+    flex-wrap: wrap;
     justify-content: space-evenly;
 }
 /* #progress-status {
