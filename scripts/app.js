@@ -1,13 +1,5 @@
-/*Create a Tomagatchi class and instatiate class (hunger, sleepiness, boredom, age);
-- hunger increments by 1 every 15 seconds; decrements by one when fed
-- sleepiness increments by 2 every 15 seconds with lights off; decrements by 2 when lights on
-- boredom increments by 3 every 15 seconds; decrements by 2 when played with
-- age increments by 1 every minute alive and it grows
-- Tomagatchi dies when hunger, sleepiness, or boredom reaches 10
+/*Global variables for DOM manipulation*/
 
-- to implement timer => use set interval 
-https://stackoverflow.com/questions/21638574/run-a-function-every-30-seconds-javascript/49237391
-*/
 const submit = document.getElementById("submit");
 const petName = document.getElementById("pet-name");
 const feed = document.getElementById("feed");
@@ -17,6 +9,8 @@ const light = document.getElementById("light");
 const dayTime = document.querySelector(".day");
 const welcomeScreen = document.querySelector(".welcome");
 const mainScreen = document.getElementById("main-screen");
+const tomagatchi = document.getElementById("tomagatchi");
+let figureDisplay = document.createElement("div");
 
 const gameOver = document.createElement('h4');
 const timeCount = document.getElementById("time");
@@ -31,6 +25,17 @@ let boredom = 0;
 let sleepiness = 0;
 let age = 0;
 let timeChange = 1;
+
+/*Create a Tomagatchi class and instatiate class (hunger, sleepiness, boredom, age);
+- hunger increments by 1 every 15 seconds; decrements by one when fed
+- sleepiness increments by 2 every 15 seconds with lights off; decrements by 2 when lights on
+- boredom increments by 3 every 15 seconds; decrements by 2 when played with
+- age increments by 1 every minute alive and it grows
+- Tomagatchi dies when hunger, sleepiness, or boredom reaches 10
+
+- to implement timer => use set interval 
+https://stackoverflow.com/questions/21638574/run-a-function-every-30-seconds-javascript/49237391
+*/
 
 class Tomagatchi {
   constructor(hunger, sleepiness, boredom, age) {
@@ -70,6 +75,7 @@ class Tomagatchi {
       boredomCount.textContent = this.boredom += 3;
       sleepCount.textContent = this.sleepiness += 2;
       ageCount.textContent = this.age += .50;
+      tomagatchi.style.height = "100px";
       if (this.hunger >= 10 || this.boredom >= 10 || this.sleepiness >= 10) {
         metrics.prepend(gameOver);
         clearInterval(timer);
@@ -148,7 +154,7 @@ let playScreen = petName.addEventListener("keypress", (e) => {
     let monkey = document
       .getElementsByTagName("option")[2]
       .getAttribute("value");
-    let figureDisplay = document.createElement("div");
+
 
     welcomeScreen.style.display = "none";
     mainScreen.style.display = "flex";
@@ -156,7 +162,7 @@ let playScreen = petName.addEventListener("keypress", (e) => {
     petGreeting.innerHTML = `${pet}`;
 
     if (figureChoice === panda) {
-      figureDisplay.innerHTML = '<img src="images/panda.png">';
+      figureDisplay.innerHTML = '<img id="tomagatchi" src="images/panda.png">';
       figureDisplay.classList.add('character-move');
       buttons.prepend(figureDisplay);
     } else if (figureChoice === hamster) {
