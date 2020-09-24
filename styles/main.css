@@ -79,8 +79,21 @@ button,
 
 .petname {
   width: 100%;
+  /* opacity: 0; */
   align-items: center;
   justify-content: center;
+  animation-name: startgame;
+  animation-duration: 5s;
+}
+
+@keyframes startgame {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .game-over {

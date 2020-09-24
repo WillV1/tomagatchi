@@ -8,9 +8,7 @@ const wake = document.getElementById("wake");
 const exercise = document.getElementById("exercise");
 const light = document.getElementById("light");
 const dayTime = document.querySelector(".day");
-const pandaFigure = document.getElementById("panda");
-const hamsterFigure = document.getElementById("hamster");
-const monkeyFigure = document.getElementById("monkey");
+
 const welcomeScreen = document.querySelector(".welcome");
 const mainScreen = document.getElementById("main-screen");
 // //thank you Stack overflow : https://stackoverflow.com/questions/49956141/how-to-iterate-on-htmlcollection
@@ -177,7 +175,8 @@ submit.addEventListener("click", (e) => {
 });
 
 /*transition between welcome and main screen;
-display Tomagatchi figure
+based on figure choice,
+display Tomagatchi figure with movement
 start timer on main screen
 */
 
@@ -198,6 +197,9 @@ let playScreen = petName.addEventListener("keypress", (e) => {
       .getElementsByTagName("option")[2]
       .getAttribute("value");
     const figureDisplay = document.querySelector(".container");
+    const pandaFigure = document.getElementById("panda");
+    const hamsterFigure = document.getElementById("hamster");
+    const monkeyFigure = document.getElementById("monkey");
 
     welcomeScreen.style.display = "none";
     mainScreen.style.display = "flex";
@@ -205,15 +207,12 @@ let playScreen = petName.addEventListener("keypress", (e) => {
     petGreeting.innerHTML = `${pet}`;
 
     if (figureChoice === panda) {
-
       pandaFigure.classList.add("character-move");
       figureDisplay.append(pandaFigure);
     } else if (figureChoice === hamster) {
-
       hamsterFigure.classList.add("character-move");
       figureDisplay.append(hamsterFigure);
     } else if (figureChoice === monkey) {
-
       monkeyFigure.classList.add("character-move");
       figureDisplay.append(monkeyFigure);
     }
@@ -242,11 +241,12 @@ wake.addEventListener("click", () => {
   figure.wake();
 });
 
-exercise.addEventListener("click", () => {
+
+let workout = exercise.addEventListener("click", () => {
   figure.exercise();
-  // document
-  //   .querySelector(".character-move")
-  //   .setAttribute("class", "character-workout");
+  document
+    .querySelector(".character-move")
+    .setAttribute("class", "character-workout");
 });  
 
 /*Change from light to dark and vice versa; consulted code snippet for toggle from 
