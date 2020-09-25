@@ -44,11 +44,11 @@ button,
 }
 
 .login h1 {
-  font-family: 'Press Start 2P', cursive;
+  font-family: "Press Start 2P", cursive;
 }
 
 .login h3 {
-  font-family: 'Press Start 2P', cursive;
+  font-family: "Press Start 2P", cursive;
 }
 
 .entry-form {
@@ -86,7 +86,7 @@ button,
 
 .petname {
   width: 100%;
-  font-family: 'Press Start 2P', cursive;
+  font-family: "Press Start 2P", cursive;
   align-items: center;
   justify-content: center;
   animation-name: startgame;
@@ -144,19 +144,19 @@ button,
 }
 
 @keyframes slideacross {
-    0%, 100%{
-      transform: translate(0,0);
-    }
-    25% {
-      transform: translate(100px, 0);
-    }
-    50% {
-      transform: translate(0, 0);
-    }
-    75% {
-      transform: translate(-100px, 0)
-    }
-
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(100px, 0);
+  }
+  50% {
+    transform: translate(0, 0);
+  }
+  75% {
+    transform: translate(-100px, 0);
+  }
 }
 
 .character-end {
@@ -189,13 +189,16 @@ button,
 }
 
 @keyframes workout {
-  0%, 100%{
-    transform: translate(0,0);
+  0%,
+  100% {
+    transform: translate(0, 0);
   }
-  25%, 75% {
+  25%,
+  75% {
     transform: translate(0, -50px);
   }
-  40%, 60% {
+  40%,
+  60% {
     transform: translate(0, -100px);
   }
   50% {

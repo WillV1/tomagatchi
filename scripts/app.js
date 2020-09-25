@@ -91,11 +91,9 @@ class Tomagatchi {
       boredomCount.textContent = this.boredom += 3;
       sleepCount.textContent = this.sleepiness += 2;
 
-      if (time %10 === 0){
+      if (time % 20 === 0) {
         ageCount.textContent = this.age += 1;
       }
-
-      
 
       sizes.forEach((size) => {
         if (this.age === size.age) {
@@ -113,7 +111,7 @@ class Tomagatchi {
           .querySelector(".character-move")
           .setAttribute("class", "character-end");
       }
-    }, 5000);
+    }, 10000);
   }
   feed() {
     if (this.hunger > 0) {
@@ -137,15 +135,15 @@ class Tomagatchi {
       sleepCount.textContent = this.sleepiness -= 2;
       hungerCount.textContent = this.hunger += 1;
     }
-      document
+    document
       .querySelector(".character-move")
-      .setAttribute("class", "character-workout")
-    
-    setTimeout(() =>{
+      .setAttribute("class", "character-workout");
+
+    setTimeout(() => {
       document
-      .querySelector(".character-workout")
-      .setAttribute("class", "character-move")
-    },1000)
+        .querySelector(".character-workout")
+        .setAttribute("class", "character-move");
+    }, 1000);
   }
   restart() {
     let restartGame = document.getElementById("restart");
