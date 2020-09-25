@@ -31,10 +31,10 @@ let age = 0;
 let timeChange = 1;
 
 /*Create a Tomagatchi class and instatiate class (hunger, sleepiness, boredom, age);
-- hunger increments by 1 every 15 seconds; decrements by one when fed
-- sleepiness increments by 2 every 15 seconds with lights off; decrements by 2 when lights on
-- boredom increments by 3 every 15 seconds; decrements by 2 when played with
-- age increments by 1 every minute alive and it grows
+- hunger increments by 1 every 10 seconds; decrements by one when fed
+- sleepiness increments by 2 every 10 seconds with lights off; decrements by 2 when lights on
+- boredom increments by 3 every 10 seconds; decrements by 2 when played with
+- age increments by 1 every 15 alive and it grows at set intervals
 - Tomagatchi dies when hunger, sleepiness, or boredom reaches 10
 
 - to implement timer => use set interval 
@@ -87,14 +87,13 @@ class Tomagatchi {
     gameOver.classList.add("game-over");
 
     const timer = setInterval(() => {
-      
-        console.log(`${time} seconds elasped`);
-        timeCount.textContent = `${time += 1} seconds`;
+      console.log(`${time} seconds elasped`);
+      timeCount.textContent = `${(time += 1)} seconds`;
 
       if (time % 10 === 0) {
-      hungerCount.textContent = this.hunger += 1;
-      boredomCount.textContent = this.boredom += 3;
-      sleepCount.textContent = this.sleepiness += 2;
+        hungerCount.textContent = this.hunger += 1;
+        boredomCount.textContent = this.boredom += 3;
+        sleepCount.textContent = this.sleepiness += 2;
       }
       if (time % 15 === 0) {
         ageCount.textContent = this.age += 1;
@@ -115,7 +114,7 @@ class Tomagatchi {
         document
           .querySelector(".character-move")
           .setAttribute("class", "character-end");
-        petGreeting.classList.add("pet-gameover")
+        petGreeting.classList.add("pet-gameover");
       }
     }, 1000);
   }
@@ -138,7 +137,7 @@ class Tomagatchi {
     //stackoverflow (forgot to post actual link before housing emergency)
     if (this.boredom > 0 && this.sleepiness > 0 && this.hunger > 0) {
       boredomCount.textContent = this.boredom -= 1;
-      sleepCount.textContent = this.sleepiness -= 2;
+      sleepCount.textContent = this.sleepiness += 1;
       hungerCount.textContent = this.hunger += 1;
     }
     document
