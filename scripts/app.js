@@ -51,31 +51,33 @@ class Tomagatchi {
     TODO: how to increment age by 1 on screen
     */
     //array of objects for break points age /size
-    const sizes = [{
-      age: 1,
-      height: "50px",
-      width: "50px"
-    },
-    {
-      age: 2,
-      height: "100px",
-      width: "100px"
-    },
-    {
-      age: 5,
-      height: "150px",
-      width: "150px"
-    },
-    {
-      age: 8,
-      height: "200px",
-      width: "200px"
-    },
-    {
-      age: 10,
-      height: "250px",
-      width: "250px"
-    }]
+    const sizes = [
+      {
+        age: 1,
+        height: "50px",
+        width: "50px",
+      },
+      {
+        age: 2,
+        height: "100px",
+        width: "100px",
+      },
+      {
+        age: 5,
+        height: "150px",
+        width: "150px",
+      },
+      {
+        age: 8,
+        height: "200px",
+        width: "200px",
+      },
+      {
+        age: 10,
+        height: "250px",
+        width: "250px",
+      },
+    ];
 
     const screenPetName = document.querySelector(".petname");
 
@@ -90,7 +92,7 @@ class Tomagatchi {
       sleepCount.textContent = this.sleepiness += 2;
       ageCount.textContent = this.age += 0.5;
 
-      sizes.forEach(size =>{
+      sizes.forEach((size) => {
         if (this.age === size.age) {
           const images = Array.from(document.getElementsByTagName("img"));
           images.forEach((image) => {
@@ -98,42 +100,40 @@ class Tomagatchi {
             image.style.width = size.width;
           });
         }
-      })
+      });
       if (this.hunger >= 10 || this.boredom >= 10 || this.sleepiness >= 10) {
         screenPetName.append(gameOver);
         clearInterval(timer);
         document
           .querySelector(".character-move")
           .setAttribute("class", "character-end");
-      } 
+      }
     }, 5000);
   }
   feed() {
-    
     if (this.hunger > 0) {
       hungerCount.textContent = this.hunger -= 1;
     }
-
   }
   wake() {
-
-    if(this.sleepiness > 0) {
+    if (this.sleepiness > 0) {
       sleepCount.textContent = this.sleepiness -= 2;
     }
   }
   play() {
-    
-    if(this.boredom > 0){
+    if (this.boredom > 0) {
       boredomCount.textContent = this.boredom -= 2;
     }
   }
   exercise() {
-
-    if(this.boredom > 0 && this.sleepiness > 0 && this.hunger > 0){
+    if (this.boredom > 0 && this.sleepiness > 0 && this.hunger > 0) {
       boredomCount.textContent = this.boredom -= 1;
       sleepCount.textContent = this.sleepiness -= 2;
       hungerCount.textContent = this.hunger += 1;
     }
+    document
+      .querySelector(".character-move")
+      .setAttribute("class", "character-workout");
   }
   restart() {
     let restartGame = document.getElementById("restart");
@@ -153,6 +153,12 @@ class Tomagatchi {
       this.boredom = 0;
       this.sleepiness = 0;
       this.age = 0;
+
+      const images = Array.from(document.getElementsByTagName("img"));
+      images.forEach((image) => {
+        image.style.height = "25px";
+        image.style.width = "25px";
+      });
 
       this.timer();
     });
@@ -217,7 +223,7 @@ let playScreen = petName.addEventListener("keypress", (e) => {
       figureDisplay.append(monkeyFigure);
     }
     const images = Array.from(document.getElementsByTagName("img"));
-    
+
     images.forEach((image) => {
       image.style.height = "25px";
       image.style.width = "25px";
@@ -241,13 +247,9 @@ wake.addEventListener("click", () => {
   figure.wake();
 });
 
-
 let workout = exercise.addEventListener("click", () => {
   figure.exercise();
-  document
-    .querySelector(".character-move")
-    .setAttribute("class", "character-workout");
-});  
+});
 
 /*Change from light to dark and vice versa; consulted code snippet for toggle from 
 https://www.w3schools.com/howto/howto_js_toggle_text.asp
@@ -256,12 +258,10 @@ TODO: figure out why error message on line 161
 
 light.addEventListener("click", (e) => {
   dayTime.classList.toggle("night");
-    let lightId = document.getElementById("light");
-    if (lightId.innerHTML === "Turn Off Light!") {
-      lightId.innerHTML = "Turn On Light!"
-    } else {
-      lightId.innerHTML = "Turn Off Light!"
-    }
+  let lightId = document.getElementById("light");
+  if (lightId.innerHTML === "Turn Off Light!") {
+    lightId.innerHTML = "Turn On Light!";
+  } else {
+    lightId.innerHTML = "Turn Off Light!";
+  }
 });
-
-
