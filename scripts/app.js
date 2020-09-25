@@ -36,6 +36,7 @@ let timeChange = 1;
 - boredom increments by 3 every 10 seconds; decrements by 2 when played with
 - age increments by 1 every 15 alive and it grows at set intervals
 - Tomagatchi dies when hunger, sleepiness, or boredom reaches 10
+- Player give the option to restart the game once the tomagatchi dies
 
 - to implement timer => use set interval 
 https://stackoverflow.com/questions/21638574/run-a-function-every-30-seconds-javascript/49237391
@@ -87,7 +88,7 @@ class Tomagatchi {
     gameOver.classList.add("game-over");
 
     const timer = setInterval(() => {
-      console.log(`${time} seconds elasped`);
+
       timeCount.textContent = `${(time += 1)} seconds`;
 
       if (time % 10 === 0) {

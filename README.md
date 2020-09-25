@@ -16,7 +16,7 @@ Once the pet and pet name are determined, the timer starts and the game begins. 
 
 ![login](./images/login.png)
 ![pet-selection](./images/pet.png)
-![game-screen](./main-screen.png)
+![game-screen](./images/main-screen.png)
 
 ## Technoloogies 
 
