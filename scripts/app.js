@@ -189,7 +189,7 @@ start timer on main screen
 let playScreen = petName.addEventListener("keypress", (e) => {
   console.log(e.key);
   if (e.key === "Enter") {
-    const petGreeting = document.querySelector(".day h1");
+    const petGreeting = document.querySelector("#main-screen h1");
     const buttons = document.querySelector(".buttons");
     const pet = document.getElementById("pet-name").value;
     let figureChoice = document.querySelector("#figure").value;

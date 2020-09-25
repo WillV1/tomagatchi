@@ -35,13 +35,20 @@ button,
 }
 
 .login {
-  background-image: url("../images/Zoo.png");
+  background-image: url("../images/login-screen.jpg");
   opacity: 0.7;
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
+  background-size: cover;
+}
+
+.login h1 {
+  font-family: 'Press Start 2P', cursive;
+}
+
+.login h3 {
+  font-family: 'Press Start 2P', cursive;
 }
 
 .entry-form {
@@ -56,13 +63,13 @@ button,
 
 .day {
   background: #edc988;
-  display: none;
-  transition: 2s
+
+  transition: 2s;
 }
 
 .night {
   background: #4c4c4c;
-  transition: 2s
+  transition: 2s;
 }
 
 .buttons {
@@ -74,12 +81,12 @@ button,
   margin-top: 10px;
   padding: 15px;
   border: 1px solid grey;
-  height: 25%
+  height: 25%;
 }
 
 .petname {
   width: 100%;
-  /* opacity: 0; */
+  font-family: 'Press Start 2P', cursive;
   align-items: center;
   justify-content: center;
   animation-name: startgame;
@@ -100,7 +107,7 @@ button,
   font-size: 2rem;
   color: red;
   text-align: center;
-  font-family: 'Cantarell', sans-serif;
+  font-family: "Cantarell", sans-serif;
   animation-name: gameends;
   animation-duration: 2s;
   animation-iteration-count: 2;
@@ -117,7 +124,6 @@ button,
 }
 
 .container {
-  background: #e8e8e8;
   height: 300px;
   width: 450px;
   border-radius: 50%;
@@ -156,14 +162,14 @@ button,
 }
 
 @keyframes gameover {
-    from {
-      opacity: 1
-    }
-  
-    to {
-      opacity: 0;
-    }
+  from {
+    opacity: 1;
   }
+
+  to {
+    opacity: 0;
+  }
+}
 
 .character-workout {
   position: absolute;
@@ -173,22 +179,27 @@ button,
   animation-name: workout;
   animation-iteration-count: 1;
 }
-  
- @keyframes workout {
-    from {
-      transform: translateY(0%);
-    }
 
-    to {
-      transform: translateY(-100%);
-    }
+@keyframes workout {
+  from {
+    transform: translateY(0%);
   }
+
+  to {
+    transform: translateY(-100%);
+  }
+}
 
 #figure {
   margin: 0 auto;
 }
 
 #main-screen {
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+  display: none;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background: url("../images/tomagatchi.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.5;
 }
