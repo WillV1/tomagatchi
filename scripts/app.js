@@ -61,23 +61,23 @@ class Tomagatchi {
       },
       {
         age: 2,
+        height: "75px",
+        width: "75px",
+      },
+      {
+        age: 5,
         height: "100px",
         width: "100px",
       },
       {
-        age: 5,
-        height: "150px",
-        width: "150px",
-      },
-      {
         age: 8,
-        height: "200px",
-        width: "200px",
+        height: "125px",
+        width: "125px",
       },
       {
         age: 10,
-        height: "250px",
-        width: "250px",
+        height: "150px",
+        width: "150px",
       },
     ];
 
@@ -87,13 +87,16 @@ class Tomagatchi {
     gameOver.classList.add("game-over");
 
     const timer = setInterval(() => {
-      console.log(`${time} seconds elasped`);
-      timeCount.textContent = `${(time += 15)} seconds`;
+      
+        console.log(`${time} seconds elasped`);
+        timeCount.textContent = `${time += 1} seconds`;
+
+      if (time % 10 === 0) {
       hungerCount.textContent = this.hunger += 1;
       boredomCount.textContent = this.boredom += 3;
       sleepCount.textContent = this.sleepiness += 2;
-
-      if (time % 20 === 0) {
+      }
+      if (time % 15 === 0) {
         ageCount.textContent = this.age += 1;
       }
 
@@ -114,7 +117,7 @@ class Tomagatchi {
           .setAttribute("class", "character-end");
         petGreeting.classList.add("pet-gameover")
       }
-    }, 10000);
+    }, 1000);
   }
   feed() {
     if (this.hunger > 0) {

@@ -151,7 +151,7 @@ button,
   position: absolute;
   top: 50%;
   left: 50%;
-  animation-duration: 5s;
+  animation-duration: 10s;
   animation-name: slideacross;
   animation-timing-function: linear;
   /* animation-direction: alternate-reverse; */
