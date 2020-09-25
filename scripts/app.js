@@ -90,7 +90,12 @@ class Tomagatchi {
       hungerCount.textContent = this.hunger += 1;
       boredomCount.textContent = this.boredom += 3;
       sleepCount.textContent = this.sleepiness += 2;
-      ageCount.textContent = this.age += 0.5;
+
+      if (time %10 === 0){
+        ageCount.textContent = this.age += 1;
+      }
+
+      
 
       sizes.forEach((size) => {
         if (this.age === size.age) {
@@ -126,14 +131,21 @@ class Tomagatchi {
     }
   }
   exercise() {
+    //stackoverflow (forgot to post actual link before housing emergency)
     if (this.boredom > 0 && this.sleepiness > 0 && this.hunger > 0) {
       boredomCount.textContent = this.boredom -= 1;
       sleepCount.textContent = this.sleepiness -= 2;
       hungerCount.textContent = this.hunger += 1;
     }
-    document
+      document
       .querySelector(".character-move")
-      .setAttribute("class", "character-workout");
+      .setAttribute("class", "character-workout")
+    
+    setTimeout(() =>{
+      document
+      .querySelector(".character-workout")
+      .setAttribute("class", "character-move")
+    },1000)
   }
   restart() {
     let restartGame = document.getElementById("restart");
