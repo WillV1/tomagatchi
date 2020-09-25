@@ -51,12 +51,23 @@ button,
   font-family: "Press Start 2P", cursive;
 }
 
+.welcome h2 {
+  font-family: "Press Start 2P", cursive;
+}
+
+.welcome h4 {
+  font-family: "Press Start 2P", cursive;
+}
+
 .entry-form {
   text-align: center;
 }
 
 .welcome {
-  background: #a0c1b8;
+  background-image: url("../images/login-screen.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.7;
   text-align: center;
   display: none;
 }
@@ -93,6 +104,10 @@ button,
   animation-duration: 5s;
 }
 
+.pet-gameover {
+  color: red;
+}
+
 @keyframes startgame {
   from {
     opacity: 0;
@@ -107,7 +122,7 @@ button,
   font-size: 2rem;
   color: red;
   text-align: center;
-  font-family: "Cantarell", sans-serif;
+  font-family: 'Dhurjati', sans-serif;
   animation-name: gameends;
   animation-duration: 2s;
   animation-iteration-count: 2;

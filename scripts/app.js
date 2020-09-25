@@ -11,6 +11,8 @@ const dayTime = document.querySelector(".day");
 
 const welcomeScreen = document.querySelector(".welcome");
 const mainScreen = document.getElementById("main-screen");
+const petGreeting = document.querySelector("#main-screen h1");
+const pet = document.getElementById("pet-name").value;
 // //thank you Stack overflow : https://stackoverflow.com/questions/49956141/how-to-iterate-on-htmlcollection
 const images = Array.from(document.getElementsByTagName("img"));
 
@@ -81,12 +83,12 @@ class Tomagatchi {
 
     const screenPetName = document.querySelector(".petname");
 
-    gameOver.innerText = "GAME OVER!";
+    gameOver.innerText = `${pet} died! What have you done?! Would you like to try again?`;
     gameOver.classList.add("game-over");
 
     const timer = setInterval(() => {
       console.log(`${time} seconds elasped`);
-      timeCount.textContent = `${(time += 5)} seconds`;
+      timeCount.textContent = `${(time += 15)} seconds`;
       hungerCount.textContent = this.hunger += 1;
       boredomCount.textContent = this.boredom += 3;
       sleepCount.textContent = this.sleepiness += 2;
@@ -110,6 +112,7 @@ class Tomagatchi {
         document
           .querySelector(".character-move")
           .setAttribute("class", "character-end");
+        petGreeting.classList.add("pet-gameover")
       }
     }, 10000);
   }
