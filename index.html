@@ -59,9 +59,12 @@
         </div>
         <div class="metrics">
             <p>Time Elapsed: <span id="time">0 seconds</span></p>
-            <p>Hunger: <span id="hunger">0</span></p>
-            <p>Boredom: <span id="boredom">0</span></p>
-            <p>Sleepiness: <span id="sleep">0</span></p>
+            <!-- https://stackoverflow.com/questions/25395336/how-to-make-a-progress-bar-using-html-and-javascript -->
+            <p id="hunger-text" class="progress">Hunger: </p><progress class="progress" id="hunger" max="10" value="0" id="progress_bar"></progress>
+            <br>
+            <p id="boredom-text" class="progress">Boredom: </p><progress class="progress" id="boredom" max="10" value="0" id="progress_bar"></progress>
+            <br>
+            <p id="sleep-text" class="progress">Sleepiness: </p><progress class="progress" id="sleep" max="10" value="0" id="progress_bar"></progress>
             <p>Age: <span id="age">0</span></p>
         </div>
         <div class="container day"></div>

@@ -10,7 +10,20 @@ In full functionality, Tomagatchi the game would allow the user to create a user
 
 Once logged in, the user will make a selection of which pet they want to use and give his/her pet a name. The user has a choice between three pet: a panda bear, a hamster, and a pet monkey.  
 
-Once the pet and pet name are determined, the timer starts and the game begins. The user has the option to feed the pet, let the pet rest, or play with the pet.  Meantime every 10 seconds, the hunger increases by one, the boredom increases by three, and sleepiness increases by two. If the pet is not fed enough (reaches 10), is not given enough rest (reaches 10), or is not played with enough (reaches 10), the pet dies.  Meantime, the user also has the opportunity to exercise the pet, which decreases boredom, but increases sleepiness and hunger.  Also, the user has the option to turn out the light for the pet during rest periods.  Finally, if the pet dies, the user has the option to restart the game.  
+Once the pet and pet name are determined, the timer starts and the game begins. The user has the option to feed the pet, let the pet rest, or play with the pet.  Meantime, every 10 seconds: 
+The hunger increases by one, 
+The boredom increases by three, and 
+Sleepiness increases by two. 
+
+If the pet is not fed enough (reaches 10), is not given enough rest (reaches 10), or is not played with enough (reaches 10), the pet dies.  
+
+The user has the opportunity to care for the pet by the following:
+
+Pushing "Feed Me" reduces hunger by one,
+Pushing "Play With Me" reduces boredom by two, and
+Pushing "Let Me Rest" reduces sleepiness by two.
+
+The user also has the opportunity to exercise the pet, which decreases boredom by two, but increases sleepiness and hunger by one.  Also, the user has the option to turn out the light for the pet during rest periods.  Finally, if the pet dies, the user has the option to restart the game.  
 
 ## Wireframes (Original)
 
@@ -18,7 +31,7 @@ Once the pet and pet name are determined, the timer starts and the game begins. 
 ![pet-selection](./images/pet.png)
 ![game-screen](./images/main-screen.png)
 
-## Technoloogies 
+## Technologies 
 
 Frontend - HTML, CSS, JS
 

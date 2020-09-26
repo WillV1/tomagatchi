@@ -15,12 +15,12 @@ const petGreeting = document.querySelector("#main-screen h1");
 const pet = document.getElementById("pet-name").value;
 // //thank you Stack overflow : https://stackoverflow.com/questions/49956141/how-to-iterate-on-htmlcollection
 const images = Array.from(document.getElementsByTagName("img"));
-
 const gameOver = document.createElement("h3");
 const timeCount = document.getElementById("time");
-const hungerCount = document.getElementById("hunger");
-const boredomCount = document.getElementById("boredom");
-const sleepCount = document.getElementById("sleep");
+
+let eatProgress = document.getElementById("hunger");
+let boreProgress = document.getElementById("boredom");
+let sleepProgress = document.getElementById("sleep");
 const ageCount = document.getElementById("age");
 
 let time = 0;
@@ -51,9 +51,9 @@ class Tomagatchi {
   }
   timer() {
     /*set up metrics and timer to increment
-    TODO: how to increment age by 1 on screen
+    array of objects for break points age /size
     */
-    //array of objects for break points age /size
+
     const sizes = [
       {
         age: 1,
@@ -88,13 +88,40 @@ class Tomagatchi {
     gameOver.classList.add("game-over");
 
     const timer = setInterval(() => {
-
       timeCount.textContent = `${(time += 1)} seconds`;
 
       if (time % 10 === 0) {
-        hungerCount.textContent = this.hunger += 1;
-        boredomCount.textContent = this.boredom += 3;
-        sleepCount.textContent = this.sleepiness += 2;
+        //progress bars to increment metrics https://stackoverflow.com/questions/9727508/dynamic-progress-bar-javascript-and-html
+        const hungerProgress = () => {
+          eatProgress.value++;
+          if (this.hunger >= 10) {
+            this.hunger = 10;
+          }
+          this.hunger = eatProgress.value;
+          console.log(`${this.hunger}`);
+        };
+
+        const boredomProgress = () => {
+          boreProgress.value += 3;
+          if (this.boredom >= 10) {
+            this.boredom = 10;
+          }
+          this.boredom = boreProgress.value;
+          console.log(`${this.boredom}`);
+        };
+
+        const sleepyProgress = () => {
+          sleepProgress.value += 2;
+          if (this.sleepiness >= 10) {
+            this.sleepiness = 10;
+          }
+          this.sleepiness = sleepProgress.value;
+          console.log(`${this.sleepiness}`);
+        };
+
+        hungerProgress();
+        boredomProgress();
+        sleepyProgress();
       }
       if (time % 15 === 0) {
         ageCount.textContent = this.age += 1;
@@ -120,26 +147,36 @@ class Tomagatchi {
     }, 1000);
   }
   feed() {
-    if (this.hunger > 0) {
-      hungerCount.textContent = this.hunger -= 1;
+    if (eatProgress.value > 0) {
+      eatProgress.value--;
+      this.hunger = eatProgress.value;
     }
   }
   wake() {
-    if (this.sleepiness > 0) {
-      sleepCount.textContent = this.sleepiness -= 2;
+    if (sleepProgress.value > 0) {
+      sleepProgress.value -= 2;
+      this.sleepiness = sleepProgress.value;
     }
   }
   play() {
-    if (this.boredom > 0) {
-      boredomCount.textContent = this.boredom -= 2;
+    if (boreProgress.value > 0) {
+      boreProgress.value -= 2;
+      this.boredom = boreProgress.value;
     }
   }
   exercise() {
     //stackoverflow (forgot to post actual link before housing emergency)
-    if (this.boredom > 0 && this.sleepiness > 0 && this.hunger > 0) {
-      boredomCount.textContent = this.boredom -= 1;
-      sleepCount.textContent = this.sleepiness += 1;
-      hungerCount.textContent = this.hunger += 1;
+    if (
+      eatProgress.value > 0 &&
+      sleepProgress.value > 0 &&
+      boreProgress.value > 0
+    ) {
+      boreProgress.value -= 2;
+      eatProgress.value++;
+      sleepProgress.value++;
+      this.hunger = eatProgress.value;
+      this.sleepiness = sleepProgress.value;
+      this.boredom = boreProgress.value;
     }
     document
       .querySelector(".character-move")

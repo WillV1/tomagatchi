@@ -34,6 +34,12 @@ button,
   font-size: 1rem;
 }
 
+progress[value] {
+  width: 100px;
+  height: 20px;
+  background: #ccf6c8
+}
+
 .login {
   background-image: url("../images/login-screen.jpg");
   opacity: 0.7;
@@ -43,19 +49,7 @@ button,
   background-size: cover;
 }
 
-.login h1 {
-  font-family: "Press Start 2P", cursive;
-}
-
-.login h3 {
-  font-family: "Press Start 2P", cursive;
-}
-
-.welcome h2 {
-  font-family: "Press Start 2P", cursive;
-}
-
-.welcome h4 {
+.login h1, .login h3, .welcome h2, .welcome h4 {
   font-family: "Press Start 2P", cursive;
 }
 
@@ -151,10 +145,7 @@ button,
   position: absolute;
   top: 50%;
   left: 50%;
-  animation-duration: 10s;
-  animation-name: slideacross;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
+  animation: slideacross 20s linear infinite;
 }
 
 @keyframes slideacross {
@@ -177,19 +168,13 @@ button,
   position: absolute;
   top: 50%;
   left: 50%;
-  animation-duration: 2s;
-  animation-name: gameover;
-  animation-iteration-count: 1;
+  opacity: 0;
+  animation-name: gameover 3s linear;
 }
 
 @keyframes gameover {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
+  0% {opacity: 1;}
+  100% {opacity: 0;}
 }
 
 .character-workout {
@@ -220,6 +205,12 @@ button,
   }
 }
 
+/* https://stackoverflow.com/questions/21482458/how-to-insert-text-exactly-after-progressbar */
+
+.progress {
+  display: inline-block;
+}
+
 #figure {
   margin: 0 auto;
 }
@@ -233,3 +224,5 @@ button,
   background-size: cover;
   opacity: 0.7;
 }
+
+
