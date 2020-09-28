@@ -195,17 +195,20 @@ class Tomagatchi {
       document
         .querySelector(".character-end")
         .setAttribute("class", "character-move");
-      timeCount.textContent = `${0} seconds`;
-      hungerCount.textContent = 0;
-      boredomCount.textContent = 0;
-      sleepCount.textContent = 0;
-      ageCount.textContent = 0;
+
+        gameOver.innerText = ``;
+        gameOver.classList.remove('pet-gameover')
 
       time = 0;
+      eatProgress.value = 0;
+      boreProgress.value = 0;
+      sleepProgress.value = 0;
+      ageCount.textContent = 0;
+
       this.hunger = 0;
       this.boredom = 0;
       this.sleepiness = 0;
-      this.age = 0;
+      this.age = 0
 
       const images = Array.from(document.getElementsByTagName("img"));
       images.forEach((image) => {

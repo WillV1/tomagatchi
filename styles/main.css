@@ -132,6 +132,14 @@ progress[value] {
   }
 }
 
+.game-restart {
+  font-size: 2rem;
+  color: black;
+  text-align: center;
+  font-family: "Dhurjati", sans-serif;
+}
+
+
 .container {
   height: 350px;
   width: 500px;
