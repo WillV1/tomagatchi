@@ -23,7 +23,7 @@ Pushing "Feed Me" reduces hunger by one,
 Pushing "Play With Me" reduces boredom by two, and
 Pushing "Let Me Rest" reduces sleepiness by two.
 
-The user also has the opportunity to exercise the pet, which decreases boredom by two, but increases sleepiness and hunger by one.  Also, the user has the option to turn out the light for the pet during rest periods.  Finally, if the pet dies, the user has the option to restart the game.  
+The user also has the opportunity to exercise the pet, which decreases boredom by two, but increases sleepiness and hunger by one.  Also, the user has the option to turn out the light for the pet during rest periods.  Finally, if the pet dies, the user has the option to restart the game.
 
 ## Wireframes (Original)
 

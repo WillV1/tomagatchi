@@ -13,7 +13,7 @@ const welcomeScreen = document.querySelector(".welcome");
 const mainScreen = document.getElementById("main-screen");
 const petGreeting = document.querySelector("#main-screen h1");
 const pet = document.getElementById("pet-name").value;
-// //thank you Stack overflow : https://stackoverflow.com/questions/49956141/how-to-iterate-on-htmlcollection
+// thank you Stack overflow : https://stackoverflow.com/questions/49956141/how-to-iterate-on-htmlcollection
 const images = Array.from(document.getElementsByTagName("img"));
 const gameOver = document.createElement("h3");
 const timeCount = document.getElementById("time");
