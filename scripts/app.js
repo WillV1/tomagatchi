@@ -197,7 +197,7 @@ class Tomagatchi {
         .setAttribute("class", "character-move");
 
         gameOver.innerText = ``;
-        gameOver.classList.remove('pet-gameover')
+        petGreeting.classList.remove('pet-gameover')
 
       time = 0;
       eatProgress.value = 0;
