@@ -12,7 +12,7 @@ Once logged in, the user will make a selection of which pet they want to use and
 
 Once the pet and pet name are determined, the timer starts and the game begins. The user has the option to feed the pet, let the pet rest, or play with the pet.  Meantime, every 10 seconds: 
 The hunger increases by one, 
-The boredom increases by three, and 
+The boredom increases by three, and
 Sleepiness increases by two. 
 
 If the pet is not fed enough (reaches 10), is not given enough rest (reaches 10), or is not played with enough (reaches 10), the pet dies.  
